@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.bds04.dto.EventDTO;
+import com.devsuperior.bds04.entities.City;
 import com.devsuperior.bds04.entities.Event;
 import com.devsuperior.bds04.repositories.EventRepository;
 
@@ -34,6 +35,6 @@ public class EventService {
 		entity.setName(dto.getName());
 		entity.setDate(dto.getDate());
 		entity.setUrl(dto.getUrl());
-		entity.getCity().setId(dto.getCityId());
+		entity.setCity(new City(dto.getCityId(), null));
 	}
 }
