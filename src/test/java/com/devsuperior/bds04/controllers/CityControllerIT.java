@@ -44,9 +44,9 @@ public class CityControllerIT {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		clientUsername = "ana@gmail.com";
+		clientUsername = "fernando@gmail.com";
 		clientPassword = "123456";
-		adminUsername = "bob@gmail.com";
+		adminUsername = "juliana@gmail.com";
 		adminPassword = "123456";
 		clientToken = tokenUtil.obtainAccessToken(mockMvc, clientUsername, clientPassword);
 		adminToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
