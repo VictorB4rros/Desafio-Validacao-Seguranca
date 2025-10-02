@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.bds04.dto.EventDTO;
+import com.devsuperior.bds04.dto.EventDetailsDTO;
 import com.devsuperior.bds04.entities.City;
 import com.devsuperior.bds04.entities.Event;
+import com.devsuperior.bds04.projections.EventProjection;
 import com.devsuperior.bds04.repositories.EventRepository;
 
 @Service
@@ -18,9 +20,9 @@ public class EventService {
 	private EventRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<EventDTO> findAll(Pageable pageable) {
-		Page<Event> result = repository.findAll(pageable);
-		return result.map(x -> new EventDTO(x));
+	public Page<EventDetailsDTO> findAll(Pageable pageable) {
+		Page<EventProjection> result = repository.searchAll(pageable);
+		return result.map(x -> new EventDetailsDTO(x));
 	}
 
 	@Transactional

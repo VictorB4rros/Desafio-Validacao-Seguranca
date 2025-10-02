@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.devsuperior.bds04.dto.EventDTO;
+import com.devsuperior.bds04.dto.EventDetailsDTO;
 import com.devsuperior.bds04.services.EventService;
 
 import jakarta.validation.Valid;
@@ -27,8 +28,8 @@ public class EventController {
 	private EventService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<EventDTO>> findAll(Pageable pageable) {
-		Page<EventDTO> list = service.findAll(pageable);		
+	public ResponseEntity<Page<EventDetailsDTO>> findAll(Pageable pageable) {
+		Page<EventDetailsDTO> list = service.findAll(pageable);		
 		return ResponseEntity.ok().body(list);
 	}
 
